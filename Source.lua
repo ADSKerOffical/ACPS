@@ -162,3 +162,94 @@ tab.newButton("Open console", "Just opens the console", function()
     end)
    game:GetService("VirtualInputManager"):SendKeyEvent(true, "F9" , false , game)
 end)
+
+tab.newToggle("Anti afk", "It only removes the kick from AFK", false, function(toggleSate)
+    if toggleSate then
+for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
+  v:Disable()
+end
+    else
+for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
+  v:Enable()
+end
+    end
+end)
+
+tab.newLabel("CoreGui switch")
+
+task.defer(function()
+ assert(game.CoreGui:FindFirstChild("PurchasePrompt"), "CoreGui PurchasePrompt not found")
+ assert(game.CoreGui:FindFirstChild("ExperienceChat"), "CoreGui ExperienceChat not found")
+ assert(game.CoreGui:FindFirstChild("DevConsoleMaster"), "CoreGui DevConsoleMaster not found")
+ assert(game.CoreGui:FindFirstChild("RobloxGui"), "CoreGui RobloxGui not found")
+ assert(game.CoreGui:FindFirstChild("Backpack"), "CoreGui Backpack not found")
+ assert(game.CoreGui:FindFirstChild("PlayerMenuScreen"), "CoreGui PlayerMenuScreen not found")
+ assert(game.CoreGui:FindFirstChild("TopBarApp"), "CoreGui TopBarApp not found")
+end)
+
+tab.newToggle("PurchasePrompt", "Gamepass menus will be hidden", false, function(toggleStae)
+iub = toggleStae
+  while iub and task.wait() do
+   pcall(function()
+    game.CoreGui.PurchasePrompt.Enabled = toggleStae
+   end)
+  end
+end)
+
+tab.newToggle("ExperienceChat", "The chat menu can be turned off", false, function(toggleStatr)
+iolk = toggleStatr
+  while iolk and task.wait() do
+    pcall(function() the 
+game.CoreGui.ExperienceChat.Enabled = toggleStatr
+    end)
+  end
+end)
+
+tab.newToggle("DevConsoleMaster", "The console can be hidden", false, function(toggleSrae)
+iyyj = toggleSrae
+    while iyyj and task.wait() do
+      pcall(function()
+game.CoreGui.DevConsoleMaster.Enabled = toggleSrae
+      end)
+    end
+end)
+
+tab.newToggle("RobloxGui", "Turns off the main root gui", false, function(toggleSrte)
+pohi = toggleSrte
+    while pohi and task.wait() do
+      pcall(function()
+game.CoreGui.RobloxGui.Enabled = toggleSrte
+       end)
+    end
+end)
+
+tab.newToggle("Backpack", "Turns off the inventory menu", false, function(toggleSert)
+fsyy = toggleSert
+    while fsyy and task.wait() do
+      pcall(function()
+game.CoreGui.RobloxGui.Backpack.Visible = toggleSert
+       end)
+    end
+end)
+
+tab.newToggle("RobloxNetworkPauseNotification", "That same window", false, function(toggleStte)
+    game:GetService("GuiService"):SetGameplayPausedNotificationEnabled(not toggleStte)
+end)
+
+tab.newToggle("PlayerMenuScreen", "When you click on a players name in the leaderboard", false, function(toggleStatet)
+ihgyd = toggleStatet
+   while ihgyd and task.wait() do
+     pcall(function()
+game.CoreGui.PlayerMenuScreen.Enabled = toggleStatet
+     end)
+   end
+end)
+
+tab.newToggle("TopBarApp", "New CoreGui buttons", false, function(toggleSta)
+yyyb = toggleSta
+    while yyyb and task.wait() do
+      pcall(function()
+game.CoreGui.TopBarApp.Enabled = not toggleSta
+       end)
+    end
+end)
