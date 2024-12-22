@@ -199,7 +199,7 @@ end)
 tab.newToggle("ExperienceChat", "The chat menu can be turned off", false, function(toggleStatr)
 iolk = toggleStatr
   while iolk and task.wait() do
-    pcall(function() the 
+    pcall(function()
 game.CoreGui.ExperienceChat.Enabled = toggleStatr
     end)
   end
